@@ -108,7 +108,7 @@ export default {
     }
   }
   .copy-right {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 15px;
     font-size: 12px;
     text-align: center;
