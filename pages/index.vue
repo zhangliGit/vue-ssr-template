@@ -1,34 +1,24 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">vue-ssr-app</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-        <div @click="goAbout">我要跳转</div>
-        <div @click="goNews">我是新闻界面</div>
-      </div>
+  <div class="container-fuild">
+    <div class="banner">
+      <img src="../assets/img/banner-one.png" alt="" />
     </div>
+    <el-row>
+      <el-col :xs="12" :sm="8" :lg="8">1</el-col>
+      <el-col :xs="12" :sm="8" :lg="8">2</el-col>
+      <el-col :xs="12" :sm="8" :lg="8">3</el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
+  components: {},
+  async asyncData({ $axios }) {
+    // const res = await $axios.get(
+    //   `http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20`
+    // )
+  },
   methods: {
     goAbout() {
       this.$router.push('/about')
@@ -40,35 +30,16 @@ export default {
 }
 </script>
 
-<style>
-.container {
+<style lang="scss" scoped>
+.container-fuild {
+  width: 100%;
+  background-color: tomato;
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  .banner {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 </style>

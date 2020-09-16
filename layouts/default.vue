@@ -1,9 +1,21 @@
 <template>
   <div>
+    <Header></Header>
     <Nuxt />
+    <Bottom></Bottom>
   </div>
 </template>
-
+<script>
+import Header from '~/components/Header'
+import Bottom from '~/components/Bottom'
+export default {
+  name: 'Default',
+  components: {
+    Header,
+    Bottom,
+  },
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
