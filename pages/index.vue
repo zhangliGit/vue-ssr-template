@@ -4,9 +4,9 @@
       <img src="../assets/img/banner-one.png" alt="" />
     </div>
     <el-row>
-      <el-col :xs="12" :sm="8" :lg="8">1</el-col>
-      <el-col :xs="12" :sm="8" :lg="8">2</el-col>
-      <el-col :xs="12" :sm="8" :lg="8">3</el-col>
+      <el-col :xs="12" :sm="12" :lg="8">1</el-col>
+      <el-col :xs="12" :sm="12" :lg="8">2</el-col>
+      <el-col :xs="12" :sm="12" :lg="8">3</el-col>
     </el-row>
   </div>
 </template>
