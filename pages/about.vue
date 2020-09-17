@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <div class="about">我是关于界面</div>
-    <div @click="back">返回啦</div>
+  <div class="news">
+    <img class="banner-top" src="../assets/img/banner_gywm.png" alt="" />
+    <div class="content-w">
+      <div class="u-padd-b20 u-padd-t20"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -9,18 +11,8 @@ export default {
   name: 'About',
   data() {
     return {
-      title: '我是关于界面',
+      solutionList: [],
     }
-  },
-  methods: {
-    back() {
-      this.$router.back()
-    },
   },
 }
 </script>
-<style scoped>
-.about {
-  color: red;
-}
-</style>

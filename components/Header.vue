@@ -1,9 +1,21 @@
 <template>
   <div class="header header-com u-fx u-fx-jsb u-fx-ac">
-    <div class="header-menu hidden-lg-and-up"></div>
+    <div class="header-menu hidden-lg-and-up u-fx-ac-jc" @click="xsShow = true">
+      <img src="../assets/img/menu-icon.png" alt="" />
+    </div>
     <img class="logo" src="../assets/img/logo.png" alt="" />
-    <ul class="hidden-sm-and-up"></ul>
-    <ul class="hidden-xs-only hidden-sm-only hidden-md-only">
+    <ul v-if="xsShow" class="xs-menu hidden-sm-and-up u-fx u-fx-ver">
+      <li
+        v-for="(menu, index) in menuList"
+        :key="index"
+        :class="{ act: current === index }"
+        @click="goMenu(menu.path, index)"
+      >
+        {{ menu.title }}
+      </li>
+      <li class="u-fx-f1" style="opacity: 0.1" @click="xsShow = false"></li>
+    </ul>
+    <ul class="lg-ul hidden-xs-only hidden-sm-only hidden-md-only">
       <li
         v-for="(menu, index) in menuList"
         :key="index"
@@ -21,6 +33,7 @@ export default {
   name: 'Header',
   data() {
     return {
+      xsShow: false,
       current: 0,
       menuList: [
         {
@@ -65,6 +78,7 @@ export default {
   methods: {
     goMenu(path, index) {
       this.current = index
+      this.xsShow = false
       this.$router.push(path)
     },
   },
@@ -76,16 +90,38 @@ export default {
   position: absolute;
   z-index: 99;
   top: 0;
+  .xs-menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    li {
+      padding-left: 20px;
+      color: #fff;
+      line-height: 40px;
+      border-bottom: 1px #333 solid;
+      background-color: #000;
+    }
+  }
   .header-menu {
-    width: 50px;
-    height: 40px;
+    width: 35px;
+    height: 30px;
     position: absolute;
     z-index: 100;
-    top: 20px;
-    right: 10px;
-    background: #fff;
+    top: 12px;
+    right: 15px;
+    background-color: #000;
+    border-radius: 4px;
+    img {
+      width: 22px;
+      height: 20px;
+      display: block;
+    }
   }
-  ul {
+  .lg-ul {
     li {
       cursor: pointer;
       font-size: 16px;
@@ -93,14 +129,14 @@ export default {
       color: #fff;
       margin-left: 40px;
       transition: all 0.3s ease;
-      &.act {
-        color: #fef291;
-      }
       &:hover {
         color: #f5f5f5;
         transform: scale(1.1);
       }
     }
+  }
+  .act {
+    color: #fef291 !important;
   }
 }
 </style>

@@ -1,21 +1,18 @@
 <template>
-  <div class="model">
-    <Header></Header>
-    <Bottom></Bottom>
+  <div class="video">
+    <img class="banner-top" src="../assets/img/banner_hhrms.png" alt="" />
+    <div class="content-w">
+      <div class="u-padd-b20 u-padd-t20"></div>
+    </div>
   </div>
 </template>
 <script>
-import Header from '~/components/Header'
-import Bottom from '~/components/Bottom'
 export default {
   name: 'Model',
-  components: {
-    Header,
-    Bottom,
-  },
   data() {
-    return {}
+    return {
+      solutionList: [],
+    }
   },
-  methods: {},
 }
 </script>
