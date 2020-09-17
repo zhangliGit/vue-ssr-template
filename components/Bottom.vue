@@ -1,13 +1,18 @@
 <template>
   <div class="bottom">
     <el-row>
-      <el-col :xs="24" :sm="4" :lg="4" class="u-fx u-fx-jc u-padd">
+      <el-col
+        :xs="24"
+        :sm="4"
+        :lg="8"
+        class="u-fx u-fx-jc u-padd hidden-sm-only hidden-md-only"
+      >
         <div class="ewm-img u-fx u-fx-jc">
           <img src="../assets/img/xcx.png" alt="" />
           <img src="../assets/img/xcx.png" alt="" />
         </div>
       </el-col>
-      <el-col :xs="6" :sm="4" :lg="4" class="u-fx u-fx-jc">
+      <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">产品中心</li>
           <li>硬件产品</li>
@@ -15,21 +20,21 @@
           <li>视频中心</li>
         </ul>
       </el-col>
-      <el-col :xs="6" :sm="4" :lg="4" class="u-fx u-fx-jc">
+      <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">开放资源</li>
           <li>解决方案</li>
           <li>客户案例</li>
         </ul>
       </el-col>
-      <el-col :xs="6" :sm="4" :lg="4" class="u-fx u-fx-jc">
+      <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">合伙人模式</li>
           <li>业务模式</li>
           <li>合作模式</li>
         </ul>
       </el-col>
-      <el-col :xs="6" :sm="4" :lg="4" class="u-fx u-fx-jc">
+      <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">联系我们</li>
           <li>关于我们</li>
@@ -38,8 +43,8 @@
       </el-col>
       <el-col
         :xs="24"
-        :sm="4"
-        :lg="4"
+        :sm="8"
+        :lg="8"
         class="u-fx u-fx-jc u-padd-l20 u-padd-r20"
       >
         <ul>
@@ -79,8 +84,7 @@ export default {
 
 <style scoped lang="scss">
 .bottom {
-  padding-top: 30px;
-  min-height: 300px;
+  padding-top: 20px;
   overflow: hidden;
   background-color: #000;
   .ewm-img {
@@ -104,6 +108,7 @@ export default {
     }
   }
   .copy-right {
+    margin-top: 10px;
     padding: 15px;
     font-size: 12px;
     text-align: center;

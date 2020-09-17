@@ -3,7 +3,7 @@
     <img class="banner-top" src="../assets/img/banner_spzq.png" alt="" />
     <div class="module-title">视频专区 / VIDEO ZONE</div>
     <div class="content-w">
-      <el-row :gutter="10">
+      <el-row :gutter="15">
         <el-col v-for="i in 10" :key="i" :xs="12" :sm="8" :lg="8">
           <img class="video-img" src="../assets/img/video.jpg" alt="" />
           <div class="u-fx u-fx-ac">
@@ -27,7 +27,7 @@ export default {
 .video {
   .video-img {
     width: 100%;
-    height: auto;
+    max-height: 360px;
     display: block;
   }
 }

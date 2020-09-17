@@ -1,14 +1,17 @@
 <template>
-  <div class="header u-fx u-fx-jsb u-fx-ac">
-    <img class="logo" src="../assets/img/logo.png" alt />
+  <div class="header header-com u-fx u-fx-jsb u-fx-ac">
+    <div class="header-menu hidden-lg-and-up"></div>
+    <img class="logo" src="../assets/img/logo.png" alt="" />
     <ul class="hidden-sm-and-up"></ul>
-    <ul class="hidden-xs-only">
+    <ul class="hidden-xs-only hidden-sm-only hidden-md-only">
       <li
         v-for="(menu, index) in menuList"
         :key="index"
         :class="{ act: current === index }"
         @click="goMenu(menu.path, index)"
-      >{{ menu.title }}</li>
+      >
+        {{ menu.title }}
+      </li>
     </ul>
   </div>
 </template>
@@ -73,9 +76,15 @@ export default {
   position: absolute;
   z-index: 99;
   top: 0;
-  width: 80%;
-  left: 10%;
-  height: 100px;
+  .header-menu {
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    right: 10px;
+    background: #fff;
+  }
   ul {
     li {
       cursor: pointer;
