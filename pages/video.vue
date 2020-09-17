@@ -29,8 +29,12 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Video',
+  computed: {
+    ...mapState('home', ['title']),
+  },
   async asyncData({ $axios }) {
     const res = await $axios.get(
       `http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20`

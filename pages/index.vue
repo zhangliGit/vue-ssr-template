@@ -4,7 +4,7 @@
       <img src="../assets/img/banner-one.png" alt="" />
     </div>
     <el-row>
-      <el-col :xs="12" :sm="12" :lg="8">1</el-col>
+      <el-col :xs="12" :sm="12" :lg="8">{{ title }}</el-col>
       <el-col :xs="12" :sm="12" :lg="8">2</el-col>
       <el-col :xs="12" :sm="12" :lg="8">3</el-col>
     </el-row>
@@ -12,14 +12,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   components: {},
-  async asyncData({ $axios }) {
-    // const res = await $axios.get(
-    //   `http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20`
-    // )
+  asyncData() {},
+  computed: {
+    ...mapState('home', ['title']),
+  },
+  async mounted() {
+    const res = await this.getData()
+    console.log(res)
   },
   methods: {
+    ...mapActions('home', ['getData']),
     goAbout() {
       this.$router.push('/about')
     },
