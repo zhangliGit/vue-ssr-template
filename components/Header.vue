@@ -1,6 +1,6 @@
 <template>
   <div class="header u-fx u-fx-jsb u-fx-ac">
-    <img class="logo" src="../assets/img/logo.png" alt="" />
+    <img class="logo" src="../assets/img/logo.png" alt />
     <ul class="hidden-sm-and-up"></ul>
     <ul class="hidden-xs-only">
       <li
@@ -8,9 +8,7 @@
         :key="index"
         :class="{ act: current === index }"
         @click="goMenu(menu.path, index)"
-      >
-        {{ menu.title }}
-      </li>
+      >{{ menu.title }}</li>
     </ul>
   </div>
 </template>
