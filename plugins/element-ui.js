@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// eslint-disable-next-line prettier/prettier
 import {
   Row,
   Col,
@@ -11,10 +12,11 @@ import {
   Button,
   Form,
   FormItem,
-  Input,
+  Input
 } from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 
+// eslint-disable-next-line prettier/prettier
 const components = [
   Row,
   Col,
@@ -38,4 +40,6 @@ const Element = {
   },
 }
 
-Vue.use(Element, { locale })
+Vue.use(Element, {
+  locale,
+})

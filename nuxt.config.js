@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -15,26 +17,46 @@ export default {
    */
   head: {
     title: '武汉全品教育科技有限公司',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    meta: [{
+        charset: 'utf-8',
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1,user-scalable=no',
+      },
       {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico',
+    }, ],
+    script: [{
+      type: 'text/javascript',
+      src: 'http://canpointlive.com/rem.js',
+    }, ],
   },
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/display.css', '~assets/css/u-base.css'],
+  css: ['element-ui/lib/theme-chalk/display.css', '~assets/css/u-base.css', {
+    src: "swiper/swiper.scss"
+  }, 'video.js/dist/video-js.css'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/element-ui', {
+    src: "~/plugins/vue-swiper.js",
+    ssr: false
+  }, {
+    src: '~plugins/video-player.js',
+    ssr: false
+  }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

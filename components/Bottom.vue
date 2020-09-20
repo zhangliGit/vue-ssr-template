@@ -1,12 +1,7 @@
 <template>
   <div class="bottom">
     <el-row>
-      <el-col
-        :xs="24"
-        :sm="4"
-        :lg="8"
-        class="u-fx u-fx-jc u-padd hidden-sm-only hidden-md-only"
-      >
+      <el-col :xs="24" :sm="4" :lg="8" class="u-fx u-fx-jc u-padd hidden-sm-only hidden-md-only">
         <div class="ewm-img u-fx u-fx-jc">
           <img src="../assets/img/xcx.png" alt="" />
           <img src="../assets/img/xcx.png" alt="" />
@@ -41,33 +36,21 @@
           <li>合作资讯</li>
         </ul>
       </el-col>
-      <el-col
-        :xs="24"
-        :sm="8"
-        :lg="8"
-        class="u-fx u-fx-jc u-padd-l20 u-padd-r20"
-      >
+      <el-col :xs="24" :sm="8" :lg="8" class="u-fx u-fx-jc u-padd-l20 u-padd-r20">
         <ul>
           <li class="title">联系方式</li>
           <li>电话：027-65526543</li>
           <li>手机：15058133936</li>
           <li>邮箱：896922782@qq.com</li>
-          <li style="line-height: 20px">
-            地址：武汉市东湖新技术开发区光谷大道现代世贸中心A座17楼
-          </li>
+          <li style="line-height: 20px">地址：武汉市东湖新技术开发区光谷大道现代世贸中心A座17楼</li>
         </ul>
       </el-col>
     </el-row>
     <div class="copy-right">
-      <div class="hidden-xs-only">
-        Copyright © 2018—2019
-        武汉全品教育科技有限公司版权所有京ICP备15050178号-2
-      </div>
+      <div class="hidden-xs-only">Copyright © 2018—2019 武汉全品教育科技有限公司版权所有京ICP备15050178号-2</div>
       <el-row class="hidden-sm-and-up">
         <el-col :xs="24" :sm="12" :lg="12">Copyright © 2018—2019</el-col>
-        <el-col :xs="24" :sm="12" :lg="12"
-          >武汉全品教育科技有限公司版权所有京ICP备15050178号-2</el-col
-        >
+        <el-col :xs="24" :sm="12" :lg="12">武汉全品教育科技有限公司版权所有京ICP备15050178号-2</el-col>
       </el-row>
     </div>
   </div>

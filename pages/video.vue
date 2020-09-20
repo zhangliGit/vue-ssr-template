@@ -1,18 +1,21 @@
 <template>
   <div class="video">
+    <div v-if="playsinline" id="video-dialog" @click="closeVideo">
+      <div class="video-close" @click="playsinline = false">X</div>
+      <div
+        ref="videoPlayer"
+        v-video-player:myVideoPlayer="playerOptions"
+        class="video-player-box"
+        :playsinline="playsinline"
+      ></div>
+    </div>
+
     <img class="banner-top" src="../assets/img/banner_spzq.png" alt="" />
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col
-            v-for="(video, index) in videoList"
-            :key="index"
-            :xs="12"
-            :sm="8"
-            :lg="8"
-            class="box-shadow"
-          >
-            <img class="video-img" :src="video.url" alt="" />
+          <el-col v-for="(video, index) in videoList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow">
+            <img class="video-img" :src="video.url" alt="" @click="onPlayerPlay" />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
                 <li class="u-te font-title u-mar-t10">
@@ -32,20 +35,89 @@
 import { mapState } from 'vuex'
 export default {
   name: 'Video',
-  computed: {
-    ...mapState('home', ['title']),
-  },
   async asyncData({ $axios }) {
-    const res = await $axios.get(
-      `http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20`
-    )
-    console.log(res.data.data)
+    const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20`)
     return { videoList: res.data.data }
   },
   data() {
     return {
+      playsinline: false,
+      playerOptions: {
+        // 播放器配置
+        muted: false, // 是否静音
+        width: '800px',
+        height: '500px',
+        loop: true,
+        playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
+        sources: [
+          {
+            type: 'video/mp4',
+            src: '',
+          },
+        ],
+        poster: '', // 封面图
+        controlBar: {
+          volumePanel: {
+            inline: false, // 音量调节是否水平
+          },
+          currentTimeDisplay: true, // 当前播放位置
+          timeDivider: false, // 时间分割线
+          durationDisplay: true, // 总时间
+          progressControl: true, // 进度条
+          remainingTimeDisplay: true, // 剩余时间
+          fullscreenToggle: true, // 全屏按钮
+        },
+      },
       videoList: [],
     }
   },
+  computed: {
+    ...mapState('home', ['title']),
+  },
+  mounted() {
+    // eslint-disable-next-line no-extra-boolean-cast
+    if (!!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
+      this.playerOptions.width = '375px'
+      this.playerOptions.height = '300px'
+    }
+  },
+  methods: {
+    onPlayerPlay() {
+      this.playerOptions.sources[0].src =
+        'http://canpointlive.com/video/%E4%B8%80%E9%94%AE%E6%8A%A5%E8%AD%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.mp4'
+      this.playsinline = true
+    },
+    closeVideo($event) {
+      if ($event.target.id === 'video-dialog') {
+        this.playsinline = false
+      }
+    },
+  },
 }
 </script>
+<style lang="scss" scoped>
+.video-img {
+  width: 100%;
+  display: block;
+  height: 3.2rem;
+}
+#video-dialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+.video-close {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 100%;
+  position: fixed;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 9999;
+  top: 80px;
+}
+</style>

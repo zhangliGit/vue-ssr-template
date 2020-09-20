@@ -16,7 +16,7 @@
       </div>
       <div class="u-padd-b20 u-padd-t20">
         <div v-show="current === 0" class="news-list">
-          <div v-for="item in newsList" :key="item._id" class="news-item u-fx">
+          <div v-for="item in newsList" :key="item._id" class="news-item u-fx" @click="goDetail(0)">
             <div class="date">{{ item.showDate }}</div>
             <div class="u-fx-f1">
               <div class="title u-te">{{ item.title }}</div>
@@ -28,13 +28,10 @@
           </div>
         </div>
         <div v-show="current === 1" class="org-list">
-          <el-row class="org-item">
-            <el-col :xs="12" :sm="8" :lg="4">1</el-col>
-            <el-col :xs="12" :sm="8" :lg="4">2</el-col>
-            <el-col :xs="12" :sm="8" :lg="4">3</el-col>
-            <el-col :xs="12" :sm="8" :lg="4">4</el-col>
-            <el-col :xs="12" :sm="8" :lg="4">5</el-col>
-            <el-col :xs="12" :sm="8" :lg="4">6</el-col>
+          <el-row class="org-item" :gutter="30">
+            <el-col v-for="i in 24" :key="i" :xs="8" :sm="4" :lg="4" class="u-fx-ac-jc">
+              <img src="../assets/img/anhui.png" alt="" @click="goDetail(1)" />
+            </el-col>
           </el-row>
         </div>
       </div>
@@ -45,10 +42,7 @@
 export default {
   name: 'News',
   async asyncData({ $axios }) {
-    const res = await $axios.get(
-      `http://canpointtest.com:8090/videoApi/getNews?page=1&size=20`
-    )
-    console.log(res.data.data)
+    const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getNews?page=1&size=20`)
     return { newsList: res.data.data }
   },
   data() {
@@ -62,6 +56,13 @@ export default {
     changeTag(index) {
       this.current = index
     },
+    goDetail(tag) {
+      if (tag) {
+        this.$router.push('/orgInfo')
+      } else {
+        this.$router.push('/newsDetail')
+      }
+    },
   },
 }
 </script>
@@ -69,7 +70,8 @@ export default {
 .news {
   .news-tab {
     width: 240px;
-    margin: 2rem auto 3rem auto;
+    margin: 0.5rem auto;
+    padding-bottom: 1rem;
     li {
       letter-spacing: 2px;
       float: left;
@@ -110,6 +112,14 @@ export default {
     }
     &:hover {
       transform: scale(0.98);
+    }
+  }
+  .org-item {
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 0.3rem;
+      display: block;
     }
   }
 }

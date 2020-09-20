@@ -10,12 +10,10 @@ const mutations = {
   SET_isPc(state, value) {
     state.isPc = value
   },
-  SET_showImg(state, value) {
-    state.showImg = value
-  },
 }
 const actions = {
-  async getData({ state, commit }, val) {
+  async getData(val) {
+    // eslint-disable-next-line prettier/prettier
     const res = await axios.get(
       'http://canpointtest.com:8090/videoApi/getVideo?page=1&size=20'
     )

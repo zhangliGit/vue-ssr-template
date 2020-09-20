@@ -1,23 +1,14 @@
 <template>
   <div class="video">
-    <img class="banner-top" src="../assets/img/banner_jjfa.png" alt="" />
+    <img class="banner-top" src="../assets/img/banner_jjfa.png" alt />
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col
-            v-for="(solution, index) in solutionList"
-            :key="index"
-            :xs="12"
-            :sm="8"
-            :lg="8"
-            class="box-shadow"
-          >
-            <img class="video-img" :src="solution.url" alt="" />
+          <el-col v-for="(solution, index) in solutionList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow">
+            <img class="solution-img" :src="solution.url" alt @click="goDetail" />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
-                <li class="u-te font-title u-mar-t10">
-                  {{ solution.title }}
-                </li>
+                <li class="u-te font-title u-mar-t10">{{ solution.title }}</li>
                 <li class="u-te level-title">{{ solution.levelTitle }}</li>
               </ul>
               <div></div>
@@ -32,10 +23,7 @@
 export default {
   name: 'Solution',
   async asyncData({ $axios }) {
-    const res = await $axios.get(
-      `http://canpointtest.com:8090/videoApi/getSolution?page=1&size=20`
-    )
-    console.log(res.data.data)
+    const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getSolution?page=1&size=20`)
     return { solutionList: res.data.data }
   },
   data() {
@@ -43,5 +31,17 @@ export default {
       solutionList: [],
     }
   },
+  methods: {
+    goDetail() {
+      this.$router.push('/solutionDetail')
+    },
+  },
 }
 </script>
+<style lang="scss" scoped>
+.solution-img {
+  width: 100%;
+  height: 3.2rem;
+  display: blocks;
+}
+</style>

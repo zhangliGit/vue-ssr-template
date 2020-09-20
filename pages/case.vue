@@ -4,15 +4,8 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col
-            v-for="(item, index) in caseList"
-            :key="index"
-            :xs="12"
-            :sm="8"
-            :lg="6"
-            class="box-shadow"
-          >
-            <img class="case-img" :src="item.url" alt="" />
+          <el-col v-for="(item, index) in caseList" :key="index" :xs="12" :sm="8" :lg="6" class="box-shadow">
+            <img class="case-img" :src="item.url" alt="" @click="goDetail" />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
                 <li class="u-te font-title u-mar-t10">
@@ -32,16 +25,18 @@
 export default {
   name: 'Case',
   async asyncData({ $axios }) {
-    const res = await $axios.get(
-      `http://canpointtest.com:8090/videoApi/getCase?page=1&size=20`
-    )
-    console.log(res.data.data)
+    const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getCase?page=1&size=20`)
     return { caseList: res.data.data }
   },
   data() {
     return {
       caseList: [],
     }
+  },
+  methods: {
+    goDetail() {
+      this.$router.push('/caseDetail')
+    },
   },
 }
 </script>

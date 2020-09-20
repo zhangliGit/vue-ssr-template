@@ -1,6 +1,6 @@
 <template>
   <div class="header header-com u-fx u-fx-jsb u-fx-ac">
-    <div class="header-menu hidden-lg-and-up u-fx-ac-jc" @click="xsShow = true">
+    <div class="header-menu hidden-md-and-up u-fx-ac-jc" @click="xsShow = true">
       <img src="../assets/img/menu-icon.png" alt="" />
     </div>
     <img class="logo" src="../assets/img/logo.png" alt="" />
@@ -15,7 +15,7 @@
       </li>
       <li class="u-fx-f1" style="opacity: 0.1" @click="xsShow = false"></li>
     </ul>
-    <ul class="lg-ul hidden-xs-only hidden-sm-only hidden-md-only">
+    <ul class="lg-ul hidden-xs-only hidden-sm-only">
       <li
         v-for="(menu, index) in menuList"
         :key="index"
@@ -24,6 +24,7 @@
       >
         {{ menu.title }}
       </li>
+      <li><img class="go-admin" src="../assets/img/go-admin.png" alt="" /></li>
     </ul>
   </div>
 </template>
@@ -106,6 +107,11 @@ export default {
       background-color: #000;
     }
   }
+  .go-admin {
+    width: 130px;
+    height: 32px;
+    display: block;
+  }
   .header-menu {
     width: 35px;
     height: 30px;
@@ -128,6 +134,7 @@ export default {
       float: left;
       color: #fff;
       margin-left: 40px;
+      line-height: 32px;
       transition: all 0.3s ease;
       &:hover {
         color: #f5f5f5;
