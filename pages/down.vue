@@ -31,7 +31,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .down-list {
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0 0 4px #eee;
   .title {
     font-size: 18px;

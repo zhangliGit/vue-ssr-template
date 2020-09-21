@@ -33,6 +33,7 @@
     background-size: 100% 100%;
     height: 450px;
   }
+
   .video-player-box {
     position: fixed;
     width: 375px;
@@ -49,25 +50,30 @@
     width: 100%;
     padding: 20px;
   }
+
   .content-w {
     width: 90%;
     margin: 0 auto;
   }
+
   .title-line {
     padding: 0.6rem 0;
     font-size: 22px;
     text-align: center;
   }
+
   .ywms-bg {
     background: url(../../assets/img/business.png) no-repeat center;
     background-size: 100% 100%;
     height: 490px;
   }
+
   .hz-bg {
     background: url(../../assets/img/cooperation.png) no-repeat center;
     background-size: 100% 100%;
     height: 490px;
   }
+
   .video-player-box {
     position: fixed;
     width: 800px;
@@ -85,24 +91,48 @@
     height: auto;
     display: block;
   }
+
   .header-com {
     width: 80%;
     left: 10%;
     height: 100px;
   }
+
   .module-title {
     font-size: 30px;
     padding: 60px 0;
   }
+
   .title-line {
     padding: 50px 0;
     font-size: 26px;
     text-align: center;
   }
+
+  .cpxz-box {
+    background-color: #fff;
+    padding-bottom: 50px;
+  }
+
+  .jjfa-box {
+    background-color: #f5f5f5;
+  }
+
+  .khal-box {
+    background-color: #f5f5f5;
+    padding-bottom: 50px;
+  }
+
+  .hhrms-box {
+    background-color: #fff;
+    padding-bottom: 50px;
+  }
+
   .content-w {
     width: 80%;
     min-height: 300px;
     margin: 0 auto;
+
     img {
       width: auto;
       max-width: 950px;
@@ -110,10 +140,12 @@
       display: block;
       margin: 0 auto;
     }
+
     h3,
     .h3 {
       font-size: 20px !important;
     }
+
     p {
       margin: 0 !important;
       padding: 0 !important;
@@ -121,6 +153,7 @@
       margin-bottom: 20px;
     }
   }
+
   .detail-title {
     padding: 40px 0;
     width: 960px;
@@ -128,36 +161,43 @@
     font-size: 24px;
     font-weight: bold;
   }
+
   .product-tab-img {
     width: 160px;
     height: 160px;
     display: block;
   }
+
   .solution-img {
     width: 100% !important;
     height: 320px !important;
     display: block;
   }
+
   .case-img {
     width: 100% !important;
     height: 250px !important;
     display: block;
   }
+
   .product-img {
     width: 100% !important;
     height: 400px !important;
     display: block;
   }
+
   .video-img {
     width: 100% !important;
     height: 320px !important;
     display: block;
   }
+
   .news-tab {
     overflow: auto;
     width: 240px;
     margin: 50px auto;
     padding-bottom: 40px;
+
     li {
       letter-spacing: 2px;
       float: left;
@@ -167,6 +207,7 @@
       cursor: pointer;
       text-align: center;
       background-color: #eee;
+
       &.act {
         background-color: #4b6fd3;
         color: #fff;
@@ -174,55 +215,67 @@
       }
     }
   }
+
   .org-img {
     width: 100%;
     height: auto;
     padding-bottom: 20px;
     display: block;
   }
+
   .down-img {
     width: 250px !important;
     height: 160px !important;
     display: block;
   }
+
   .about-h {
     height: 540px;
   }
+
   .bg-wenhua {
     background: url(../../assets/img/wenhua.png) no-repeat;
     background-size: 100% 100%;
   }
+
   .company-box {
     background: url(../../assets/img/company-bg.png) no-repeat;
     background-size: 100% 100%;
     padding: 40px 200px;
   }
+
   .company-rongy {
     background: url(../../assets/img/rongy-bg-one.jpg) no-repeat;
     background-size: 100% 100%;
     padding: 40px 200px;
   }
+
   .bg-rongy {
     background: url(../../assets/img/rongy-bg.jpg) no-repeat;
     background-size: 100% 100%;
   }
+
   .content-show {
     width: 960px;
     margin: 0 auto;
   }
+
   .ywms-bg {
     background: url(../../assets/img/business.png) no-repeat center;
     background-size: auto 100%;
     height: 640px;
   }
+
   .hz-bg {
     background: url(../../assets/img/cooperation.png) no-repeat center;
     background-size: auto 100%;
     height: 640px;
   }
+
   .product-top {
     margin-top: 80px;
   }
+
   .video-player-box {
     position: fixed;
     width: 800px;

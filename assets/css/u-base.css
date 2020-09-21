@@ -76,6 +76,10 @@ button {
   display: inline-block;
 }
 
+.u-bg-fff {
+  background-color: #fff;
+}
+
 /* 界面对齐 */
 .u-tx-c {
   text-align: center;
