@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import css from 'swiper/swiper.scss'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-
-Vue.use(VueAwesomeSwiper)
+export default () => {
+  Vue.use(VueAwesomeSwiper, { css })
+}

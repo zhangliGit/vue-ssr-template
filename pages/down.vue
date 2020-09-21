@@ -6,7 +6,7 @@
         <el-row :gutter="40">
           <el-col v-for="i in 4" :key="i" :xs="24" :sm="12" :lg="12" class="u-fx down-list">
             <div>
-              <img src="../assets/img/bg1.jpg" alt="" />
+              <img class="down-img" src="../assets/img/bg1.jpg" alt="" />
             </div>
             <div class="u-fx-f1 u-fx u-fx-ver">
               <div class="title">解决方案类文件</div>

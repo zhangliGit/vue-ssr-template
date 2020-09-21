@@ -14,8 +14,16 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col v-for="(video, index) in videoList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow">
-            <img class="video-img" :src="video.url" alt="" @click="onPlayerPlay" />
+          <el-col
+            v-for="(video, index) in videoList"
+            :key="index"
+            :xs="12"
+            :sm="8"
+            :lg="8"
+            class="box-shadow u-hand"
+            @click.native="onPlayerPlay(video.videoUrl)"
+          >
+            <img class="video-img" :src="video.url" alt="" />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
                 <li class="u-te font-title u-mar-t10">
@@ -82,9 +90,8 @@ export default {
     }
   },
   methods: {
-    onPlayerPlay() {
-      this.playerOptions.sources[0].src =
-        'http://canpointlive.com/video/%E4%B8%80%E9%94%AE%E6%8A%A5%E8%AD%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.mp4'
+    onPlayerPlay(url) {
+      this.playerOptions.sources[0].src = url
       this.playsinline = true
     },
     closeVideo($event) {

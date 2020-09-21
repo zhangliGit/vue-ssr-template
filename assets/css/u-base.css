@@ -243,6 +243,10 @@ button {
   -webkit-line-clamp: 3;
 }
 
+.u-hand {
+  cursor: pointer;
+}
+
 /**定义伸缩盒子模型**/
 .u-fx {
   display: flex;
@@ -351,11 +355,6 @@ button {
 }
 
 /**公共样式**/
-.banner-top {
-  width: 100%;
-  height: 5.9rem;
-  display: block;
-}
 
 .module-title {
   padding: 30px 0;
@@ -373,150 +372,4 @@ button {
 .level-title {
   font-size: 12px;
   color: #999;
-}
-
-.solution-img {
-  width: 100%;
-  height: 3.2rem;
-  display: blocks;
-}
-
-.case-img {
-  width: 100%;
-  display: block;
-  height: 3rem;
-}
-
-.product-img {
-  width: 100%;
-  height: 3.5rem;
-  display: block;
-}
-
-/**响应式**/
-@media screen and (max-width: 767px) {
-  .header-com {
-    width: 100%;
-    padding: 20px;
-    height: 60px;
-  }
-
-  .logo {
-    width: 100px;
-    height: auto;
-    display: block;
-  }
-
-  .content-w {
-    width: 94%;
-    margin: 0 auto;
-  }
-  .title-line {
-    padding: 0.6rem 0;
-    font-size: 22px;
-    text-align: center;
-  }
-  .ywms-bg {
-    background: url(../../assets/img/business.png) no-repeat center;
-    background-size: 100% 100%;
-    height: 450px;
-  }
-
-  .hz-bg {
-    background: url(../../assets/img/cooperation.png) no-repeat center;
-    background-size: 100% 100%;
-    height: 450px;
-  }
-  .video-player-box {
-    position: fixed;
-    width: 375px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -188px;
-    z-index: 9999;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .header-com {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .content-w {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .title-line {
-    padding: 0.6rem 0;
-    font-size: 22px;
-    text-align: center;
-  }
-  .ywms-bg {
-    background: url(../../assets/img/business.png) no-repeat center;
-    background-size: 100% 100%;
-    height: 490px;
-  }
-
-  .hz-bg {
-    background: url(../../assets/img/cooperation.png) no-repeat center;
-    background-size: 100% 100%;
-    height: 490px;
-  }
-  .video-player-box {
-    position: fixed;
-    width: 800px;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    margin: -250px 0 0 -400px;
-    z-index: 9999;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .module-title {
-    font-size: 30px;
-    padding: 60px 0;
-  }
-  .title-line {
-    padding: 0.6rem 0;
-    font-size: 26px;
-    text-align: center;
-  }
-  .header-com {
-    width: 80%;
-    left: 10%;
-    height: 100px;
-  }
-
-  .content-w {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .ywms-bg {
-    background: url(../../assets/img/business.png) no-repeat center;
-    background-size: auto 100%;
-    height: 640px;
-  }
-
-  .hz-bg {
-    background: url(../../assets/img/cooperation.png) no-repeat center;
-    background-size: auto 100%;
-    height: 640px;
-  }
-  .product-top {
-    margin-top: 80px;
-  }
-  .video-player-box {
-    position: fixed;
-    width: 800px;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    margin: -250px 0 0 -400px;
-    z-index: 9999;
-  }
 }

@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fuild">
-    <img class="banner-top" src="../assets/img/banner_gywm.png" alt="" />
+  <div class="container-fuild about">
+    <img class="banner-top" src="../assets/img/banner_gywm.png" alt />
     <el-row>
       <el-col :xs="24" :sm="12" :lg="12" class="company-info">
-        <div class="company-box">
+        <div class="about-h company-box">
           <div class="title">公司简介</div>
           <div class="info">
             武汉全品教育科技有限公司，简称“武汉全品”，成立于2017年，注册资金4000万。专注于机器视觉在K12教育领域的应用，为平安校园、
@@ -16,7 +16,15 @@
           </div>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :lg="12" class="bg-wenhua"></el-col>
+      <el-col :xs="24" :sm="12" :lg="12" class="about-h bg-wenhua"></el-col>
+    </el-row>
+    <el-row>
+      <el-col :xs="24" :sm="12" :lg="12">
+        <div class="about-h company-rongy">
+          <div class="zz-title">荣誉资质</div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="12" class="about-h bg-rongy"></el-col>
     </el-row>
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20"></div>
@@ -34,9 +42,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.company-info {
-  height: 5.4rem;
-  background-color: #eee;
+.about {
+  .zz-title {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+  }
   .title {
     font-size: 24px;
     font-weight: bold;
@@ -46,10 +57,5 @@ export default {
     margin-top: 40px;
     line-height: 28px;
   }
-}
-.bg-wenhua {
-  height: 5.4rem;
-  background: url(../assets/img/wenhua.png) no-repeat;
-  background-size: 100% 100%;
 }
 </style>

@@ -16,7 +16,7 @@
       </div>
       <div class="u-padd-b20 u-padd-t20">
         <div v-show="current === 0" class="news-list">
-          <div v-for="item in newsList" :key="item._id" class="news-item u-fx" @click="goDetail(0)">
+          <div v-for="item in newsList" :key="item._id" class="news-item u-fx" @click="goDetail(0, item._id)">
             <div class="date">{{ item.showDate }}</div>
             <div class="u-fx-f1">
               <div class="title u-te">{{ item.title }}</div>
@@ -28,9 +28,9 @@
           </div>
         </div>
         <div v-show="current === 1" class="org-list">
-          <el-row class="org-item" :gutter="30">
+          <el-row class="org-item" :gutter="80">
             <el-col v-for="i in 24" :key="i" :xs="8" :sm="4" :lg="4" class="u-fx-ac-jc">
-              <img src="../assets/img/anhui.png" alt="" @click="goDetail(1)" />
+              <img class="org-img" src="../assets/img/anhui.png" alt="" @click="goDetail(1, 1)" />
             </el-col>
           </el-row>
         </div>
@@ -56,11 +56,16 @@ export default {
     changeTag(index) {
       this.current = index
     },
-    goDetail(tag) {
+    goDetail(tag, _id) {
       if (tag) {
         this.$router.push('/orgInfo')
       } else {
-        this.$router.push('/newsDetail')
+        this.$router.push({
+          path: 'newsDetail',
+          query: {
+            _id,
+          },
+        })
       }
     },
   },
@@ -68,26 +73,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .news {
-  .news-tab {
-    width: 240px;
-    margin: 0.5rem auto;
-    padding-bottom: 1rem;
-    li {
-      letter-spacing: 2px;
-      float: left;
-      width: 120px;
-      line-height: 50px;
-      height: 50px;
-      cursor: pointer;
-      text-align: center;
-      background-color: #eee;
-      &.act {
-        background-color: #4b6fd3;
-        color: #fff;
-        font-size: 14px;
-      }
-    }
-  }
   .news-item {
     padding: 15px;
     cursor: pointer;
@@ -112,14 +97,6 @@ export default {
     }
     &:hover {
       transform: scale(0.98);
-    }
-  }
-  .org-item {
-    img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 0.3rem;
-      display: block;
     }
   }
 }

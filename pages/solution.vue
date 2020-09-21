@@ -4,8 +4,16 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col v-for="(solution, index) in solutionList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow">
-            <img class="solution-img" :src="solution.url" alt @click="goDetail" />
+          <el-col
+            v-for="(solution, index) in solutionList"
+            :key="index"
+            :xs="12"
+            :sm="8"
+            :lg="8"
+            class="box-shadow"
+            @click.native="goDetail(solution._id)"
+          >
+            <img class="solution-img" :src="solution.url" alt />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
                 <li class="u-te font-title u-mar-t10">{{ solution.title }}</li>
@@ -32,16 +40,14 @@ export default {
     }
   },
   methods: {
-    goDetail() {
-      this.$router.push('/solutionDetail')
+    goDetail(_id) {
+      this.$router.push({
+        path: 'solutionDetail',
+        query: {
+          _id,
+        },
+      })
     },
   },
 }
 </script>
-<style lang="scss" scoped>
-.solution-img {
-  width: 100%;
-  height: 3.2rem;
-  display: blocks;
-}
-</style>

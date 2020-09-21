@@ -41,21 +41,12 @@
           </el-col>
         </el-row>
         <div class="title-line">硬件产品 / HARDWARE</div>
-        <div class="u-padd-b20 u-padd-t20">
-          <el-row :gutter="40">
-            <el-col
-              v-for="(product, index) in productList"
-              :key="index"
-              :xs="24"
-              :sm="12"
-              :lg="12"
-              class="product-list"
-            >
-              <img class="product-img" :src="product.url" alt="" @click="goDetail" />
-              <div class="product-des">{{ product.title }}</div>
-            </el-col>
-          </el-row>
-        </div>
+        <el-row :gutter="40">
+          <el-col v-for="(product, index) in productList" :key="index" :xs="24" :sm="12" :lg="12" class="product-list">
+            <img class="product-img" :src="product.url" alt="" @click="goDetail" />
+            <div class="product-des">{{ product.title }}</div>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>
