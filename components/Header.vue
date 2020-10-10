@@ -5,23 +5,13 @@
     </div>
     <img class="logo" src="../assets/img/logo.png" alt="" />
     <ul v-if="xsShow" class="xs-menu hidden-sm-and-up u-fx u-fx-ver">
-      <li
-        v-for="(menu, index) in menuList"
-        :key="index"
-        :class="{ act: current === index }"
-        @click="goMenu(menu.path, index)"
-      >
+      <li v-for="(menu, index) in menuList" :key="index" :class="{ act: current === index }" @click="goMenu(menu.path, index)">
         {{ menu.title }}
       </li>
       <li class="u-fx-f1" style="opacity: 0.1" @click="xsShow = false"></li>
     </ul>
     <ul class="lg-ul hidden-xs-only hidden-sm-only">
-      <li
-        v-for="(menu, index) in menuList"
-        :key="index"
-        :class="{ act: current === index }"
-        @click="goMenu(menu.path, index)"
-      >
+      <li v-for="(menu, index) in menuList" :key="index" :class="{ act: current === index }" @click="goMenu(menu.path, index)">
         {{ menu.title }}
       </li>
       <li><img class="go-admin" src="../assets/img/go-admin.png" alt="" /></li>

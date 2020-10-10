@@ -13,8 +13,7 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial,
-    sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   font-size: 14px !important;
   overflow-x: hidden;
   line-height: 20px;
@@ -23,10 +22,6 @@ body {
   padding-left: constant(safe-area-inset-left);
   padding-right: constant(safe-area-inset-right);
   padding-bottom: constant(safe-area-inset-bottom);
-}
-
-p {
-  line-height: 12px;
 }
 
 div {

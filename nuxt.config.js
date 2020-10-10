@@ -48,16 +48,18 @@ export default {
     '~assets/css/u-base.css',
     '~assets/css/layout.scss',
     'video.js/dist/video-js.css',
+    'swiper/swiper-bundle.css',
   ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '@/plugins/element-ui',
+    { src: '@/plugins/element-ui', ssr: true },
     {
       src: '~plugins/video-player.js',
     },
+    { src: '@/plugins/vue-swiper.js', ssr: false },
   ],
   /*
    ** Auto import components

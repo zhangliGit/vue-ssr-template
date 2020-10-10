@@ -4,12 +4,7 @@
     <div class="content-w">
       <div class="u-auto u-padd-b">
         <ul class="news-tab">
-          <li
-            v-for="(item, index) in tabList"
-            :key="index"
-            :class="{ act: current === index }"
-            @click="changeTag(index)"
-          >
+          <li v-for="(item, index) in tabList" :key="index" :class="{ act: current === index }" @click="changeTag(index)">
             {{ item }}
           </li>
         </ul>

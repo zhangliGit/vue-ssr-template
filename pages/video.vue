@@ -2,27 +2,14 @@
   <div class="video">
     <div v-if="playsinline" id="video-dialog" @click="closeVideo">
       <div class="video-close" @click="playsinline = false">X</div>
-      <div
-        ref="videoPlayer"
-        v-video-player:myVideoPlayer="playerOptions"
-        class="video-player-box"
-        :playsinline="playsinline"
-      ></div>
+      <div ref="videoPlayer" v-video-player:myVideoPlayer="playerOptions" class="video-player-box" :playsinline="playsinline"></div>
     </div>
 
     <img class="banner-top" src="../assets/img/banner_spzq.png" alt="" />
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col
-            v-for="(video, index) in videoList"
-            :key="index"
-            :xs="12"
-            :sm="8"
-            :lg="8"
-            class="box-shadow u-hand"
-            @click.native="onPlayerPlay(video.videoUrl)"
-          >
+          <el-col v-for="(video, index) in videoList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow u-hand" @click.native="onPlayerPlay(video.videoUrl)">
             <img class="video-img" :src="video.url" alt="" />
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
