@@ -38,17 +38,22 @@ export default {
         href: '/favicon.ico',
       },
     ],
-    script: [],
+    script: [
+      {
+        url: 'https://hm.baidu.com/hm.js?29a13c7ed5518103e11246e1ec3932d8',
+      },
+    ],
   },
   /*
    ** Global CSS
    */
   css: [
     'element-ui/lib/theme-chalk/display.css',
-    '~assets/css/u-base.css',
+    '~assets/css/u-base.scss',
     '~assets/css/layout.scss',
+    '~assets/css/animate.css',
     'video.js/dist/video-js.css',
-    'swiper/swiper-bundle.css',
+    'swiper/dist/css/swiper.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -59,7 +64,8 @@ export default {
     {
       src: '~plugins/video-player.js',
     },
-    { src: '@/plugins/vue-swiper.js', ssr: false },
+    { src: '~plugins/vue-swiper.js', ssr: false },
+    { src: '~/plugins/store-cache', ssr: false },
   ],
   /*
    ** Auto import components
@@ -99,5 +105,9 @@ export default {
         ],
       ],
     },
+  },
+  server: {
+    port: 8089, // default: 3000
+    host: '0.0.0.0', // default: localhost
   },
 }

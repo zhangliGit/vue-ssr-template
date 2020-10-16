@@ -4,7 +4,9 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <ul class="org-list">
-          <li v-for="(org, index) in orgList" :key="index" @click="showDialog(org._id)">{{ org.title }}</li>
+          <li v-for="(org, index) in orgList" :key="index" class="u-hand" @click="showDialog(org._id)">
+            {{ org.title }}
+          </li>
         </ul>
       </div>
     </div>
@@ -14,7 +16,9 @@
 export default {
   name: 'OrgInfo',
   async asyncData({ $axios, query }) {
-    const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getOrgInfo?page=1&size=20&cityId=${query._id}&type=info`)
+    const res = await $axios.get(
+      `http://canpointtest.com:8090/videoApi/getOrgInfo?page=1&size=20&cityId=${query._id}&type=info`
+    )
     return {
       orgList: res.data.data,
     }

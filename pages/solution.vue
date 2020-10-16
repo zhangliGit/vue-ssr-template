@@ -4,14 +4,24 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col v-for="(solution, index) in solutionList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow" @click.native="goDetail(solution._id)">
-            <img class="solution-img" :src="solution.url" alt />
-            <div class="u-fx u-fx-ac u-padd-l10">
-              <ul>
-                <li class="u-te font-title u-mar-t10">{{ solution.title }}</li>
+          <el-col
+            v-for="(solution, index) in solutionList"
+            :key="index"
+            :xs="12"
+            :sm="8"
+            :lg="8"
+            class="box-shadow u-hand"
+            @click.native="goDetail(solution._id)"
+          >
+            <div class="solution-img u-of hand-hover">
+              <img class="solution-img" :src="solution.url" alt />
+            </div>
+            <div class="u-fx u-fx-ac u-padd-l10 u-padd-t20">
+              <ul class="u-fx-f1">
+                <li class="u-te font-title">{{ solution.title }}</li>
                 <li class="u-te level-title">{{ solution.levelTitle }}</li>
               </ul>
-              <div></div>
+              <div class="rit-arrow"></div>
             </div>
           </el-col>
         </el-row>

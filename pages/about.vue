@@ -12,7 +12,7 @@
     </el-row>
     <el-row>
       <el-col :xs="24" :sm="12" :lg="12">
-        <div class="about-h company-rongy u-auto">
+        <div class="about-h company-rongy u-of">
           <div class="zz-title">荣誉资质</div>
           <div>
             <img class="zz-img" src="../assets/img/zz-one.png" alt />
@@ -34,8 +34,7 @@
             <el-col v-for="(boss, index) in bossList" :key="index" :xs="24" :sm="8" :lg="8" class="boss">
               <div class="boss-title">{{ boss.title }}</div>
               <div class="boss-remark">{{ boss.remark }}</div>
-              <div class="boss-info"></div>
-              <div v-html="content"></div>
+              <div v-html="boss.content"></div>
             </el-col>
           </el-row>
         </div>
@@ -77,7 +76,7 @@ export default {
   .company-des {
     margin-top: 20px;
     p {
-      line-height: 45px !important;
+      line-height: 60px !important;
     }
   }
   .area-des {
@@ -102,8 +101,9 @@ export default {
   }
   .boss {
     background: #fff;
+    height: 600px;
     padding: 30px;
-    box-shadow: 0 0 4px #eee;
+    border: 2px #eee solid;
     .boss-title {
       font-size: 20px;
       font-weight: bold;

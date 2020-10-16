@@ -4,14 +4,23 @@
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col v-for="(down, index) in downList" :key="index" :xs="24" :sm="12" :lg="12" class="u-fx down-list">
+          <el-col
+            v-for="(down, index) in downList"
+            :key="index"
+            :xs="24"
+            :sm="12"
+            :lg="12"
+            class="u-fx box-shadow down-list"
+          >
             <div>
               <img class="down-img" :src="down.pic" alt="" />
             </div>
             <div class="u-fx-f1 u-fx u-fx-ver">
               <div class="title">{{ down.title }}</div>
               <div class="info u-fx-f1">{{ down.levelTitle }}</div>
-              <div class="u-tx-r"><el-button type="primary" size="small" @click="downFile(down.url)">点击下载</el-button></div>
+              <div class="u-tx-r">
+                <el-button type="primary" size="small" @click="downFile(down.url)">点击下载</el-button>
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -41,7 +50,6 @@ export default {
 <style lang="scss" scoped>
 .down-list {
   padding: 30px;
-  box-shadow: 0 0 4px #eee;
   .title {
     font-size: 18px;
     font-weight: bold;

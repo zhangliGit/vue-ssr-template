@@ -1,16 +1,31 @@
 <template>
   <div class="video">
     <div v-if="playsinline" id="video-dialog" @click="closeVideo">
-      <div class="video-close" @click="playsinline = false">X</div>
-      <div ref="videoPlayer" v-video-player:myVideoPlayer="playerOptions" class="video-player-box" :playsinline="playsinline"></div>
+      <div class="video-close" @click="playsinline = false"></div>
+      <div
+        ref="videoPlayer"
+        v-video-player:myVideoPlayer="playerOptions"
+        class="video-player-box"
+        :playsinline="playsinline"
+      ></div>
     </div>
 
     <img class="banner-top" src="../assets/img/banner_spzq.png" alt="" />
     <div class="content-w">
       <div class="u-padd-b20 u-padd-t20">
         <el-row :gutter="40">
-          <el-col v-for="(video, index) in videoList" :key="index" :xs="12" :sm="8" :lg="8" class="box-shadow u-hand" @click.native="onPlayerPlay(video.videoUrl)">
-            <img class="video-img" :src="video.url" alt="" />
+          <el-col
+            v-for="(video, index) in videoList"
+            :key="index"
+            :xs="12"
+            :sm="8"
+            :lg="8"
+            class="box-shadow u-hand"
+            @click.native="onPlayerPlay(video.videoUrl)"
+          >
+            <div class="video-hover u-of">
+              <img class="video-img" :src="video.url" alt="" />
+            </div>
             <div class="u-fx u-fx-ac u-padd-l10">
               <ul>
                 <li class="u-te font-title u-mar-t10">
@@ -102,16 +117,29 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   z-index: 9998;
 }
-.video-close {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
-  border-radius: 100%;
-  position: fixed;
-  left: 50%;
-  margin-left: -25px;
-  z-index: 9999;
-  top: 80px;
+.video-hover {
+  img {
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
+  }
+  &::before {
+    width: 100%;
+    height: 100%;
+    z-index: 33;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: url(../assets/img/link-icon.png) no-repeat center, url(../assets/img/video-on.png) no-repeat center;
+    background-size: 140px 140px, 40px 40px;
+    animation: move 2s ease infinite;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+.video-hover:hover {
+  img {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.2);
+  }
 }
 </style>

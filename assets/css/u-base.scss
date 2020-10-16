@@ -13,7 +13,8 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial,
+    sans-serif;
   font-size: 14px !important;
   overflow-x: hidden;
   line-height: 20px;
@@ -49,8 +50,9 @@ button {
   background-color: transparent;
   outline: none;
 }
-
-/* 界面布局 */
+.ql-align-center {
+  text-align: center;
+}
 .u-page {
   position: fixed;
   width: 100%;
@@ -75,7 +77,6 @@ button {
   background-color: #fff;
 }
 
-/* 界面对齐 */
 .u-tx-c {
   text-align: center;
 }
@@ -84,7 +85,6 @@ button {
   text-align: right;
 }
 
-/* 元素滚动 */
 .u-scroll-y {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -97,7 +97,6 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 元素隐藏 */
 .u-hide {
   display: none;
 }
@@ -110,18 +109,15 @@ button {
   overflow: auto;
 }
 
-/* 元素加粗 */
 .u-bold {
   font-weight: bold;
 }
 
-/* 元素阴影 */
 .box-shadow {
-  box-shadow: 0 0 4px #eee;
+  box-shadow: 0 2px 2px #f6f6f6;
   padding: 20px;
 }
 
-/* 文本间距*/
 .u-letter-1 {
   letter-spacing: 2px;
 }
@@ -133,10 +129,6 @@ button {
 .u-letter-3 {
   letter-spacing: 6px;
 }
-
-/**
- * 元素只显示一行，两行，三行多余的隐藏
- */
 .u-te {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -153,7 +145,6 @@ button {
   -webkit-line-clamp: 2;
 }
 
-/**间距**/
 .u-mar-10 {
   margin: 10px;
 }
@@ -246,19 +237,16 @@ button {
   cursor: pointer;
 }
 
-/**定义伸缩盒子模型**/
 .u-fx {
   display: flex;
   display: -webkit-flex;
 }
 
-/**定义垂直方向盒子模型**/
 .u-fx-ver {
   flex-direction: column;
   -webkit-flex-direction: column;
 }
 
-/**水平垂直居中**/
 .u-fx-ac-jc {
   display: flex;
   flex-direction: column;
@@ -266,7 +254,6 @@ button {
   justify-content: center;
 }
 
-/**水平垂直居中**/
 .u-fx-ac-je {
   display: flex;
   flex-direction: column;
@@ -274,61 +261,51 @@ button {
   justify-content: flex-end;
 }
 
-/**盒子模型水平反向布局**/
 .u-fx-revX {
   flex-direction: row-reverse;
   -webkit-flex-direction: row-reverse;
 }
 
-/**盒子模型垂直反向布局**/
 .u-fx-revY {
   flex-direction: column-reverse;
   -webkit-flex-direction: column-reverse;
 }
 
-/**垂直居中**/
 .u-fx-ac {
   align-items: center;
   -webkit-align-items: center;
 }
 
-/**垂直居下**/
 .u-fx-ae {
   align-items: flex-end;
   -webkit-align-items: flex-end;
 }
 
-/**元素水平居中**/
 .u-fx-jc {
   justify-content: center;
   -webkit-justify-content: center;
 }
 
-/**元素水平居右**/
 .u-fx-je {
   justify-content: flex-end;
   -webkit-justify-content: flex-end;
 }
 
-/**元素两端对齐**/
 .u-fx-jsb {
   justify-content: space-between;
   -webkit-justify-content: space-between;
 }
 
-/**元素以相同间距分配对齐**/
 .u-fx-jsa {
   justify-content: space-around;
   -webkit-justify-content: space-around;
 }
 
-/**子元素固定宽度弹性布局且换行**/
 .u-fx-wp {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-/**弹性盒子等分比例分配**/
 .u-fx-f1 {
   flex: 1;
   -webkit-flex: 1;
@@ -353,8 +330,6 @@ button {
   position: relative;
 }
 
-/**公共样式**/
-
 .module-title {
   padding: 30px 0;
   font-size: 22px;
@@ -364,11 +339,91 @@ button {
 }
 
 .font-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .level-title {
   font-size: 12px;
   color: #999;
+}
+
+.hand-hover {
+  img {
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
+  }
+}
+.hand-hover:hover {
+  img {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.2);
+  }
+  &::before {
+    width: 100%;
+    height: 100%;
+    z-index: 33;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: url(../img/link-icon.png) no-repeat center, url(../img/link-go.png) no-repeat center;
+    background-size: 140px 140px, 40px 40px;
+    animation: move 2s ease infinite;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.hand-case {
+  .show-info {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+.hand-case:hover {
+  .show-info {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 1);
+  }
+  img {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+@keyframes move {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.video-close {
+  color: #999;
+  letter-spacing: 2px;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  background: url(../img/close-icon.png) no-repeat;
+  background-size: 50px;
+  border-radius: 100%;
+  position: fixed;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 9999;
+  top: 80px;
 }

@@ -4,7 +4,14 @@
     <div class="content-w">
       <div class="u-auto">
         <ul class="news-tab">
-          <li v-for="(item, index) in tabList" :key="index" :class="{ act: current === index }" @click="changeTag(index)">{{ item }}</li>
+          <li
+            v-for="(item, index) in tabList"
+            :key="index"
+            :class="{ act: current === index }"
+            @click="changeTag(index)"
+          >
+            {{ item }}
+          </li>
         </ul>
       </div>
       <div class="u-padd-b20 u-padd-t20">
@@ -22,7 +29,15 @@
         </div>
         <div v-show="current === 1" class="org-list">
           <el-row class="org-item" :gutter="10">
-            <el-col v-for="(org, index) in orgList" :key="index" class="u-fx-ac-jc org-bg" :xs="8" :sm="4" :lg="4" @click.native="goDetail(1, org._id)">
+            <el-col
+              v-for="(org, index) in orgList"
+              :key="index"
+              class="u-fx-ac-jc org-bg u-hand"
+              :xs="8"
+              :sm="4"
+              :lg="4"
+              @click.native="goDetail(1, org._id)"
+            >
               {{ org.name }}
             </el-col>
           </el-row>
@@ -74,7 +89,7 @@ export default {
 <style lang="scss" scoped>
 .news {
   .org-bg {
-    margin: 0 20px;
+    margin: 0 20px 20px 20px;
     background-color: #4b6fd3;
     height: 160px;
     color: #fff;
@@ -82,7 +97,6 @@ export default {
     font-weight: bold;
     letter-spacing: 2px;
     border-radius: 4px;
-    box-shadow: 0 0 3px #ccc;
   }
   .news-item {
     padding: 15px;

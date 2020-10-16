@@ -4,36 +4,36 @@
       <el-col :xs="24" :sm="4" :lg="8" class="u-fx u-fx-jc u-padd hidden-sm-only hidden-md-only">
         <div class="ewm-img u-fx u-fx-jc">
           <img src="../assets/img/xcx.png" alt="" />
-          <img src="../assets/img/xcx.png" alt="" />
+          <img src="../assets/img/gzh.jpg" alt="" />
         </div>
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">产品中心</li>
-          <li>硬件产品</li>
-          <li>产品优势</li>
-          <li>视频中心</li>
+          <li @click="goHtml('/production', 1)">硬件产品</li>
+          <li @click="goHtml('/production', 1)">产品优势</li>
+          <li @click="goHtml('/video', 1)">视频中心</li>
         </ul>
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">开放资源</li>
-          <li>解决方案</li>
-          <li>客户案例</li>
+          <li @click="goHtml('/solution', 3)">解决方案</li>
+          <li @click="goHtml('/case', 4)">客户案例</li>
         </ul>
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">合伙人模式</li>
-          <li>业务模式</li>
-          <li>合作模式</li>
+          <li @click="goHtml('/model', 5)">业务模式</li>
+          <li @click="goHtml('/model', 5)">合作模式</li>
         </ul>
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2" class="u-fx u-fx-jc">
         <ul>
           <li class="title">联系我们</li>
-          <li>关于我们</li>
-          <li>合作资讯</li>
+          <li @click="goHtml('/about', 8)">关于我们</li>
+          <li @click="goHtml('/about', 8)">合作资讯</li>
         </ul>
       </el-col>
       <el-col :xs="24" :sm="8" :lg="8" class="u-fx u-fx-jc u-padd-l20 u-padd-r20">
@@ -61,6 +61,12 @@ export default {
   name: 'Bottom',
   data() {
     return {}
+  },
+  methods: {
+    goHtml(path, index) {
+      this.$store.commit('home/SET_Data', index)
+      this.$router.push(path)
+    },
   },
 }
 </script>

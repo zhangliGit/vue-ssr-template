@@ -15,7 +15,15 @@
         </el-row>
         <div class="title-line">硬件产品 / HARDWARE</div>
         <el-row :gutter="40">
-          <el-col v-for="(product, index) in productList" :key="index" :xs="24" :sm="12" :lg="12" class="product-list" @click.native="goDetail(product._id)">
+          <el-col
+            v-for="(product, index) in productList"
+            :key="index"
+            :xs="24"
+            :sm="12"
+            :lg="12"
+            class="product-list u-hand"
+            @click.native="goDetail(product._id)"
+          >
             <img class="product-img" :src="product.url" alt />
             <div class="product-des">{{ product.title }}</div>
           </el-col>
@@ -30,7 +38,7 @@ export default {
   async asyncData({ $axios }) {
     const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getProduct?page=1&size=20`)
     const resInfo = await $axios.get(`http://canpointtest.com:8090/videoApi/getAbout?type=product`)
-    return { productList: res.data.data, detail: resInfo.data.data[0].content }
+    return { productList: res.data.data.reverse(), detail: resInfo.data.data[0].content }
   },
   data() {
     return {
@@ -70,8 +78,8 @@ export default {
   }
   .product-des {
     font-size: 16px;
-    height: 40px;
-    line-height: 40px;
+    height: 60px;
+    line-height: 60px;
     background-color: #444;
     color: #fff;
     text-align: center;

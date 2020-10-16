@@ -29,16 +29,16 @@
   }
 
   .cpxz-box {
-    background-color: #fff;
+    background-color: #f6f6f6;
     padding-bottom: 20px;
   }
 
   .jjfa-box {
-    background-color: #ebebeb;
+    background-color: #fff;
   }
 
   .khal-box {
-    background-color: #ebebeb;
+    background-color: #fff;
     padding-bottom: 50px;
   }
 
@@ -247,6 +247,13 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .rit-arrow {
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: url(../../assets/img/rit-arrow.png) no-repeat;
+    background-size: 40px 40px;
+  }
   .banner-top {
     width: 100%;
     height: auto;
@@ -265,22 +272,22 @@
   }
 
   .title-line {
-    padding: 50px 0;
-    font-size: 26px;
+    padding: 50px 0 20px 0;
+    font-size: 30px;
     text-align: center;
   }
 
   .cpxz-box {
-    background-color: #fff;
+    background-color: #f6f6f6;
     padding-bottom: 50px;
   }
 
   .jjfa-box {
-    background-color: #ebebeb;
+    background-color: #fff;
   }
 
   .khal-box {
-    background-color: #ebebeb;
+    background-color: #fff;
     padding-bottom: 50px;
   }
 
@@ -325,8 +332,8 @@
   }
 
   .product-tab-img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     display: block;
   }
 
@@ -338,10 +345,14 @@
 
   .case-img {
     width: 100% !important;
-    height: 250px !important;
+    height: 550px !important;
     display: block;
   }
-
+  .case-info {
+    padding: 30px;
+    line-height: 26px;
+    font-size: 16px;
+  }
   .product-img {
     width: 100% !important;
     height: 400px !important;
