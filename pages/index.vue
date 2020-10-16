@@ -77,6 +77,8 @@
             <div class="case-img u-of hand-case">
               <div class="show-info">
                 <div class="u-pos-box u-fx-ac-jc">
+                  <div class="case-name">{{ item.schoolName }}</div>
+                  <div class="case-system">{{ item.systemName }}</div>
                   <div class="case-info">{{ item.systemDes }}</div>
                   <div>
                     <el-button type="primary" size="small">详情</el-button>
