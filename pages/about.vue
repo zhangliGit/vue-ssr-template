@@ -100,10 +100,18 @@ export default {
     line-height: 28px;
   }
   .boss {
+    border-radius: 6px;
+    overflow-y: scroll;
     background: #fff;
     height: 600px;
     padding: 30px;
-    border: 2px #eee solid;
+    border: 6px #eee solid;
+    box-shadow: inset 0 0 10px #eee;
+    transition: all ease 0.3s;
+    &:hover {
+      transform: scale(0.98);
+      background: #f5f5f5;
+    }
     .boss-title {
       font-size: 20px;
       font-weight: bold;

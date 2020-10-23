@@ -7,6 +7,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  display: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: transparent;
+}
 
 [v-cloak] {
   display: none;
