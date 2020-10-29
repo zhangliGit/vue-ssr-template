@@ -3,8 +3,33 @@
     <div class="banner">
       <div v-swiper:mySwiper="swiperOption" class="swiperWrap">
         <div class="swiper-wrapper">
-          <div v-for="(banner, index) in bannerList" :key="index" class="swiper-slide" @click="goDetial(index)">
+          <!-- <div v-for="(banner, index) in bannerList" :key="index" class="swiper-slide" @click="goDetial(index)">
             <img :src="banner.url" />
+          </div> -->
+          <!-- 轮播图因为要展示动态文字和图片，暂时先写死 -->
+          <div class="swiper-slide" @click="goDetial(0)">
+            <img src="../assets/img/banner_04.png" />
+            <div class="banner-title">全品宿管 助力复学</div>
+            <div class="box-wrap">
+              <div class="banner-box box-one">年中大促 最低2.5万</div>
+              <div class="box-one-btn">
+                <img src="../assets/img/button_06.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" @click="goDetial(1)">
+            <img src="../assets/img/banner_05.png" />
+            <div class="device-left">
+              <div class="video-title banner-title">视频讲解 安装无忧</div>
+              <div class="box-des-img box-one-btn">
+                <div class="quip_">
+                  &nbsp;&nbsp;&nbsp;设备一体化&nbsp;&nbsp;安装便捷 &nbsp; &nbsp;联网迅速 &nbsp;&nbsp; 开机即用
+                </div>
+              </div>
+              <div class="box-one-btn box-two-btn">
+                <img src="../assets/img/button_07.png" alt="" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination swiper-pagination-bullets"></div>
@@ -152,6 +177,9 @@ export default {
       swiperOption: {
         autoplay: 4000,
         loop: true,
+        on: {
+          slideChangeTransitionEnd: this.swiperChange,
+        },
       },
     }
   },
@@ -211,6 +239,9 @@ export default {
       this.$store.commit('home/SET_Data', index)
       this.$router.push(path)
     },
+    swiperChange() {
+      console.log('spppppp')
+    },
   },
 }
 </script>
@@ -237,6 +268,99 @@ export default {
       }
     }
   }
+  .banner-title {
+    animation: bannertitle 1s linear;
+    -webkit-animation: bannertitle 1s linear;
+    position: absolute;
+    z-index: 99;
+    width: 600px;
+    text-align: center;
+    top: 250px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px #000;
+    font-size: 52px !important;
+    left: 8%;
+    color: #fff;
+  }
+  .box-wrap {
+    position: absolute;
+    z-index: 100;
+    top: 350px;
+    width: 600px;
+    left: 8%;
+  }
+  .box-one {
+    margin-left: 100px;
+    animation: moveone 2s ease;
+    margin-top: 10px;
+    -webkit-animation: moveone 2s ease;
+    background: url(../assets/img/button_05.png) no-repeat;
+  }
+  .banner-box {
+    width: 390px;
+    height: 92px;
+    line-height: 45px;
+    text-align: center;
+    display: block;
+    margin: 20px 0 20px 100px;
+    font-size: 1.5rem !important;
+    color: #fff;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    border-radius: 10px;
+  }
+  .box-one-btn {
+    width: 177px;
+    height: 56px;
+    animation: moveone 2s ease;
+    margin-left: 100px;
+  }
+
+  .device-left {
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding-top: 120px;
+    padding-bottom: 100px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .video-title {
+    animation: none;
+    -webkit-animation: none;
+    font-size: 24px;
+    line-height: 80px;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+  .box-two-btn {
+    margin-left: 0;
+  }
+
+  .box-des-img {
+    width: 100%;
+    height: 100px;
+    margin-left: 0;
+    margin-bottom: 100px;
+    .quip_ {
+      background: url(../assets/img/wadz_02.png) no-repeat;
+      position: relative;
+      top: 2.2rem;
+      height: 60px;
+      font-size: 24px;
+      color: #fff;
+      line-height: 55px;
+    }
+  }
+
   .banner {
     img {
       width: 100%;
@@ -294,6 +418,30 @@ export default {
       text-align: center;
       color: #666;
     }
+  }
+}
+
+@keyframes bannertitle {
+  0% {
+    left: -1000px;
+  }
+  100% {
+    left: 15%;
+  }
+}
+
+@keyframes moveone {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  40% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 </style>
