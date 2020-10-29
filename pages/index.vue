@@ -6,7 +6,7 @@
           <!-- <div v-for="(banner, index) in bannerList" :key="index" class="swiper-slide" @click="goDetial(index)">
             <img :src="banner.url" />
           </div> -->
-          <!-- 轮播图因为要展示动态文字和图片，暂时先写死 -->
+          <!-- 先写死 -->
           <div class="swiper-slide" @click="goDetial(0)">
             <img src="../assets/img/banner_04.png" />
             <div class="banner-title">全品宿管 助力复学</div>
@@ -177,9 +177,6 @@ export default {
       swiperOption: {
         autoplay: 4000,
         loop: true,
-        on: {
-          slideChangeTransitionEnd: this.swiperChange,
-        },
       },
     }
   },
@@ -238,9 +235,6 @@ export default {
     goHtml(path, index) {
       this.$store.commit('home/SET_Data', index)
       this.$router.push(path)
-    },
-    swiperChange() {
-      console.log('spppppp')
     },
   },
 }
