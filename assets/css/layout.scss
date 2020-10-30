@@ -78,6 +78,7 @@
     width: 100% !important;
     height: 120px !important;
     display: block;
+    object-fit: cover;
   }
 
   .product-img {
@@ -348,6 +349,7 @@
     width: 100% !important;
     height: 550px !important;
     display: block;
+    object-fit: cover;
   }
   .case-info {
     padding: 10px 30px 30px 30px;

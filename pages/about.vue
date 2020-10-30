@@ -31,10 +31,17 @@
         <div class="title-line">招聘信息</div>
         <div class="u-auto">
           <el-row class="u-mar-b20">
-            <el-col v-for="(boss, index) in bossList" :key="index" :xs="24" :sm="8" :lg="8" class="boss">
+            <el-col v-for="(boss, index) in bossList" :key="index" :xs="24" :sm="6" :lg="6" class="boss">
+              <div class="boos-job-icon">
+                <img class="list-icon-arrow" src="../assets/img/job.png" alt="" />
+              </div>
               <div class="boss-title">{{ boss.title }}</div>
               <div class="boss-remark">{{ boss.remark }}</div>
               <div v-html="boss.content"></div>
+              <div class="content-list-icon">
+                <img class="list-icon-arrow" src="../assets/img/arrow-top.png" alt="" />
+              </div>
+              <div v-html="boss.contentOther || boss.content" class="content-other"></div>
             </el-col>
           </el-row>
         </div>
@@ -55,6 +62,7 @@ export default {
   async asyncData({ $axios, query }) {
     const res = await $axios.get(`http://canpointtest.com:8090/videoApi/getAbout?type=about`)
     const bossRes = await $axios.get(`http://canpointtest.com:8090/videoApi/getBoss?page=1&size=20`)
+    console.log(bossRes)
     return {
       bossList: bossRes.data.data,
       company: res.data.data[0].content,
@@ -100,8 +108,9 @@ export default {
     line-height: 28px;
   }
   .boss {
+    position: relative;
     border-radius: 6px;
-    overflow-y: scroll;
+    overflow: hidden;
     background: #fff;
     height: 600px;
     padding: 30px;
@@ -112,15 +121,63 @@ export default {
       transform: scale(0.98);
       background: #f5f5f5;
     }
+    .boos-job-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      margin-bottom: 10px;
+
+      img {
+        width: 100px;
+        height: 70px;
+      }
+    }
     .boss-title {
       font-size: 20px;
       font-weight: bold;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .boss-remark {
       padding: 10px 0;
       text-align: center;
     }
+    .content-list-icon {
+      margin-top: 20px;
+      -webkit-animation: pulse 1s infinite;
+      animation: pulse 1s infinite;
+      cursor: pointer;
+      left: 0;
+      right: 0;
+      bottom: 8%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .list-icon-arrow {
+        width: 30px;
+        height: 32px;
+      }
+    }
+    .content-other {
+      position: absolute;
+      left: 0;
+      top: 600px;
+      width: 100%;
+      height: 100%;
+      background: #fb6a19;
+      padding: 30px 25px;
+      overflow-y: auto;
+      transition: all 0.5s ease 0s;
+      -webkit-transform: all 0.5s ease 0s;
+    }
+  }
+
+  .boss:hover .content-other {
+    top: 0;
   }
   .area-list {
     height: 585px;
@@ -138,6 +195,21 @@ export default {
     height: 475px;
     background: url(../assets/img/bg-31.png) no-repeat right;
     background-size: 711px 475px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 </style>
