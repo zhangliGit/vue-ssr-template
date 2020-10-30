@@ -420,7 +420,7 @@ export default {
     left: -1000px;
   }
   100% {
-    left: 15%;
+    left: 8%;
   }
 }
 
